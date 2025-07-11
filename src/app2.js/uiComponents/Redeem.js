@@ -4,7 +4,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import css from "../css/Addcase.module.css";
 import { Link } from 'react-router-dom';
 import Header from "../Components/Header";
-import Rightcontainer from "../Components/Rightcontainer";
+
 import Swal from "sweetalert2";
 
 

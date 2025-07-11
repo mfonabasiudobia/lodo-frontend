@@ -7,7 +7,7 @@ import axios from 'axios';
 // import { Link, useHistory } from 'react-router-dom';
 // import Profile from './Profile';
 // import { Image } from 'react-bootstrap';
-import Rightcontainer from "../Components/Rightcontainer";
+
 import Swal from 'sweetalert2';
 import Header from '../Components/Header';
 
@@ -83,8 +83,8 @@ const Profile1 = () => {
             Name,
         }, { headers })
             .then((res) => {
-                console.log(res.data)
-                if(res.data=="User name already exist!")
+               
+                  if(res.data=="User name already exist!")
                 {
                     Swal.fire({
                         title: res.data,
@@ -108,7 +108,7 @@ const Profile1 = () => {
            holder_name,account_number,ifsc_code,upi_id
         }, { headers })
             .then((res) => {
-                console.log(res.data);
+              
                 if (res.status == 200) {
                     setShow(prev => !prev)
                     UserALL();
@@ -134,7 +134,7 @@ const Profile1 = () => {
             referral,
         }, { headers })
             .then((res) => {
-                console.log(res.data);
+           
                 if (res.status == 200) {
                     UserALL();
                     let message;
@@ -173,7 +173,7 @@ const Profile1 = () => {
         if (file) {
 
             const access_token = localStorage.getItem("token")
-            // // console.log(access_token)
+            
             const headers = {
                 Authorization: `Bearer ${access_token}`
             }
@@ -182,7 +182,7 @@ const Profile1 = () => {
             formData.append('avatar', file);
 
 
-            // console.log(formData)
+         
             await fetch(baseUrl+`users/me/avatar`, {
                 method: "POST",
                 body: formData,
@@ -192,20 +192,6 @@ const Profile1 = () => {
                 UserALL()
             })
         }
-
-
-        // await axios.patch(baseUrl+`challange/result/${path}`,
-        //   {
-        //     status: status
-        //   },
-        //   { headers })
-        //   .then((res) => {
-        //     // getPost(res.data)
-        //     // console.log(res.data);
-        //     history.push("/landing")
-        // }).catch((e) => {
-        //     // console.log(e);
-        //   })
     }
     //avatar
 
@@ -217,182 +203,138 @@ const Profile1 = () => {
 
     return (
         <>
-        <Header user={profile} />
-            <div className="leftContainer" style={{minHeight:'100vh'}}>
-
-                <div className="mt-5 py-4 px-3" style={{ background: 'rgb(250, 250, 250)' }}>
-                    <div className={`${css.center_xy} py-5`}>
-                        <label>
-                            <input className='d-none' type="file" onChange={(e) => Result(e.target.files[0])} accept="image/*" required />
-                            <picture >
-                                {/* {image} */}
-                                {profile && profile.avatar ? (<img height="80px" width="80px" src={baseUrl+`${profile && profile.avatar}`} alt="" style={{ borderRadius: "50px" }} />) : (<img height="80px" width="80px" src={process.env.PUBLIC_URL +`/user.png`} alt="" style={{ borderRadius: "50px" }} />)}
-                            </picture>
-                        </label>
-                        <span className={`${css.battle_input_header} mr-1`}>
-                            {profile && profile.Phone}
-                        </span>
-                        <div className={`text-bold my-3 ${portcss} font-weight-bold `} style={{ fontSize: '1em' }} >
-                            {profile && profile.Name}
-                            <img className={`ml-2`} width="20px" src={process.env.PUBLIC_URL + '/Images/icon-edit.jpg'} alt=""
-                                onClick={() => {
-                                    setPortcss(css.inactive_tab)
-                                    setPortcss1(css.active_tab)
-                                }}
-                            />
-                        </div>
-                        <div className={`text-bold my-3 ${portcss1}`}>
-                            <div className={`${css.MuiFormControl_root} ${css.MuiTextField_root}`} style={{ verticalAlign: 'bottom' }}>
-                                <div className={`${css.MuiInputBase_root} ${css.MuiInput_root} ${css.MuiInput_underline} ${css.MuiInputBase_formControl} ${css.MuiInput_formControl}`}>
-                                    <input aria-invalid="false" type="text" maxLength={'20'} className={`${css.MuiInputBase_input} ${css.MuiInput_input}`} placeholder="Enter Username"
-                                        value={Name}
-                                        onChange={(e) => {
-                                            setName(e.target.value)
-                                        }}
-                                    />
-                                </div>
-                            </div>
-                            <img className="ml-2" width="20px" src={process.env.PUBLIC_URL + "/Images/select-blue-checkIcon.png"} alt=""
-                                onClick={() => {
-                                    setPortcss(css.active_tab)
-                                    setPortcss1(css.inactive_tab)
-                                    UpdateProfile(Id)
-                                }}
-                            />
-                        </div>
-                        <Link className={`${css.profile_wallet} d-flex align-items-center`} style={{ width: '90%' }} to="/wallet">
-                            <picture className="ml-4">
-                                <img width="32px" src={process.env.PUBLIC_URL + "/Images/sidebar-wallet.png"} alt="" />
-                            </picture>
-                            <div className={`${css.mytext} ml-5 text-muted`}>
-                                My Wallet
-                            </div>
-                        </Link>
+        {/* <Header user={profile} /> */}
+        <div className="leftContainer mt-5" style={{ minHeight: '100vh', background: '#f5f6fa' }}>
+          <div className="container py-4">
+            {/* Profile Card */}
+            <div className="card shadow-sm mb-4" style={{ borderRadius: '16px' }}>
+              <div className="card-body d-flex flex-column align-items-center p-4">
+                <label className="mb-2" style={{ cursor: 'pointer' }}>
+                  <input className='d-none' type="file" onChange={(e) => Result(e.target.files[0])} accept="image/*" required />
+                  <picture>
+                    {profile && profile.avatar ? (
+                      <img height="80px" width="80px" src={baseUrl + `${profile && profile.avatar}`} alt="" style={{ borderRadius: "50%", border: '3px solid #e0e0e0', objectFit: 'cover' }} />
+                    ) : (
+                      <img height="80px" width="80px" src={process.env.PUBLIC_URL + `/user.png`} alt="" style={{ borderRadius: "50%", border: '3px solid #e0e0e0', objectFit: 'cover' }} />
+                    )}
+                  </picture>
+                </label>
+                <div className="text-muted mt-2" style={{ fontSize: '0.95em', fontWeight: 500 }}>{profile && profile.Phone}</div>
+                <div className="d-flex align-items-center mt-2">
+                  <span className="font-weight-bold" style={{ fontSize: '1.2em' }}>{profile && profile.Name}</span>
+                  <img className="ml-2" width="20px" src={process.env.PUBLIC_URL + '/Images/icon-edit.jpg'} alt="Edit" style={{ cursor: 'pointer' }}
+                    onClick={() => {
+                      setPortcss(css.inactive_tab)
+                      setPortcss1(css.active_tab)
+                    }}
+                  />
+                </div>
+                {/* Username Edit */}
+                <div className={`mt-2 w-100 ${portcss1}`} style={{ maxWidth: 300 }}>
+                  <div className="input-group">
+                    <input aria-invalid="false" type="text" maxLength={'20'} className="form-control" placeholder="Enter Username"
+                      value={Name}
+                      onChange={(e) => {
+                        setName(e.target.value)
+                      }}
+                    />
+                    <div className="input-group-append">
+                      <span className="input-group-text bg-white" style={{ cursor: 'pointer' }}
+                        onClick={() => {
+                          setPortcss(css.active_tab)
+                          setPortcss1(css.inactive_tab)
+                          UpdateProfile(Id)
+                        }}>
+                        <img width="20px" src={process.env.PUBLIC_URL + "/Images/select-blue-checkIcon.png"} alt="Save" />
+                      </span>
                     </div>
+                  </div>
                 </div>
-                <div className={css.divider_x}>
-                </div>
-                
-                
-     
-    
-                
-                <div className="p-3" style={{ background: 'white' }}>
-                    <div className={css.text_bold}>
-                        Complete Profile
-                    </div>
-                    <div className="">
-
-                        <div >
-                            <div>
-                                <div className="" style={{}}>
-                                    <Link className={`d-flex align-items-center ${css.profile_wallet} bg-light mx-1 my-4 py-5`} style={{ backgroundColor: 'whitesmoke' }} to={(profile && profile.verified === `unverified`) ? `/Kyc2` : `/Profile` }>
-                                        <picture className="ml-4">
-                                            <img width="32px" src={process.env.PUBLIC_URL + "/Images/kyc-icon-new.png"} alt="" className="" />
-                                        </picture>
-                                        <div className={`ml-5 ${css.mytext} text-muted`}>
-                                            {profile && profile.verified === `unverified` ? 'Complete KYC' : profile && profile.verified === 'pending' ? 'In Process' : profile && profile.verified === 'verified' ? "Completed Kyc ✅" : "Completed Kyc ✅"}                                        </div>
-                                    </Link>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-              
-                <div className={css.divider_x}>
-                </div>
-                {profile && !profile.referral && <div className="px-3 py-1">
-                    <div className={`d-flex align-items-center ${css.position_relative}`} style={{ height: '84px' }}>
-                        <picture>
-                            <img height="32px" width="32px" src={process.env.PUBLIC_URL + 'Images/Header/sreferEarn.png'} alt="" className="snip-img" />
-                        </picture>
-                        <div className="pl-4">
-                            <div className={`${css.text_uppercase} ${css.moneyBox_header}`} style={{ fontSize: '1rem' }}>
-                                Use Refer Code
-                            </div>
-                            <div className="d-flex">
-                                
-                                <input type="text" className={css.MuiInputBase_input} aria-describedby="basic-addon1" value={referral} onChange={(e) => { setCode(e.target.value) }} />
-                                <button style={{ backgroundColor: 'transparent', border: 'none' }} onClick={() => {
-                                    update_RefCode()
-                                }}>
-                                    <img width="20px" className="ml-2" src={process.env.PUBLIC_URL + "/Images/select-blue-checkIcon.png"} />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>}
-                <div className="px-3 py-1">
-                    <div className={`d-flex align-items-center ${css.position_relative}`} style={{ height: '84px' }}>
-                        <picture>
-                            <img height="32px" width="32px" src={process.env.PUBLIC_URL + "/Images/global-cash-won-green-circular.png"} alt="" className="snip-img" />
-                        </picture>
-                        <div className="pl-4">
-                            <div className={`${css.text_uppercase} ${css.moneyBox_header}`} style={{ fontSize: '1em' }}>
-                                Cash Won
-                            </div>
-                            <div className="">
-                                <picture className="mr-1">
-                                    <img height="auto" width="21px" src={process.env.PUBLIC_URL + "/Images/global-rupeeIcon.png"} alt="" className="snip-img" />
-                                </picture>
-                                <span className={css.moneyBox_text} style={{ fontSize: '1em', bottom: '-1px' }}>
-                                    {profile && profile.wonAmount}
-                                </span>
-                            </div>
-                            <span className={css.thin_divider_x}>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div className="px-3 py-1">
-                    <div className={`d-flex align-items-center ${css.position_relative}`} style={{ height: '84px' }}>
-                        <picture>
-                            <img height="32px" width="32px" src={process.env.PUBLIC_URL + "/Images/global-purple-battleIcon.png"} alt="" className="" />
-                        </picture>
-                        <div className="pl-4">
-                            <div className={`${css.text_uppercase} ${css.moneyBox_header}`} style={{ fontSize: '1em' }}>
-                                Battle Played
-                            </div>
-                            <div className="snip-div">
-                                <span className={css.moneyBox_text} style={{ fontSize: '1em', bottom: '-1px' }}>
-                                    {total && total}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="px-3 py-1">
-                    <div className={`d-flex align-items-center ${css.position_relative}`} style={{ height: '84px' }}>
-                        <picture>
-                            <img height="32px" width="32px" src={process.env.PUBLIC_URL + "/Images/referral-signup-bonus-new.png"} alt="" className="snip-img" />
-                        </picture>
-                        <div className="pl-4">
-                            <div className={`${css.text_uppercase} ${css.moneyBox_header}`} style={{ fontSize: '1em' }}>
-                                Referral Earning
-                            </div>
-                            <div className="">
-                                <span className={css.moneyBox_text} style={{ fontSize: '1em', bottom: '-1px' }}>
-                                    {profile && profile.referral_earning}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className={css.divider_x}>
-                </div>
-                <div className="p-3 snipcss-A1eLC snip-div">
-                    <Link to="/login" className={`${css.center_xy}  text-uppercase py-4 font-weight-bolder text-muted`} onClick={(e) => logout(e)}>
-                        Log Out
-                    </Link>
-                </div>
+                <Link
+                  className="btn mt-4 px-4 py-2 d-flex align-items-center gap-2 custom-wallet-btn bg-primary text-white"
+                  style={{ 
+                    borderRadius: 8, 
+                    fontWeight: 500,
+                    textDecoration: 'none',
+                    color: 'white'
+                  }}
+                  to="/wallet"
+                >
+                  <img width="28px" src={process.env.PUBLIC_URL + "/Images/sidebar-wallet.png"} alt="Wallet" className="mr-2" />
+                  My Wallet
+                </Link>
+              </div>
             </div>
-            <div className='rightContainer'>
-                <Rightcontainer />
+
+            {/* Complete Profile Card */}
+            <div className="card shadow-sm mb-4" style={{ borderRadius: '16px' }}>
+              <div className="card-body">
+                <div className="font-weight-bold mb-3" style={{ fontSize: '1.1em' }}>Complete Profile</div>
+                <Link className="d-flex align-items-center p-3 mb-2" style={{ borderRadius: 8, background: '#f8f9fa', textDecoration: 'none' }} to={(profile && profile.verified === `unverified`) ? `/Kyc2` : `/Profile`}>
+                  <img width="32px" src={process.env.PUBLIC_URL + "/Images/kyc-icon-new.png"} alt="KYC" className="mr-3" />
+                  <span style={{ fontWeight: 500 }}>
+                    {profile && profile.verified === `unverified` ? 'Complete KYC' : profile && profile.verified === 'pending' ? 'In Process' : profile && profile.verified === 'verified' ? "Completed Kyc ✅" : "Completed Kyc ✅"}
+                  </span>
+                </Link>
+              </div>
             </div>
-            {/* <ModalProfile style3={
+
+            {/* Refer Code Card */}
+            {profile && !profile.referral && (
+              <div className="card shadow-sm mb-4" style={{ borderRadius: '16px' }}>
+                <div className="card-body">
+                  <div className="d-flex align-items-center gap-2 mb-2">
+                    <img height="28px" width="28px" src={process.env.PUBLIC_URL + 'Images/Header/sreferEarn.png'} alt="Refer" className="mr-2" />
+                    <span className="font-weight-bold" style={{ fontSize: '1em' }}>Use Refer Code</span>
+                  </div>
+                  <div className="input-group d-flex align-items-center gap-2" style={{ maxWidth: 300 }}>
+                    <input type="text" className="form-control" value={referral} onChange={(e) => { setCode(e.target.value) }} placeholder="Enter refer code" />
+                    <div className="input-group-append">
+                      <button className="btn btn-link p-0 " style={{ color: '#007bff' }} onClick={update_RefCode}>
+                        <img width="20px" src={process.env.PUBLIC_URL + "/Images/select-blue-checkIcon.png"} alt="Check" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Stats Card */}
+            <div className="card shadow-sm mb-4" style={{ borderRadius: '16px' }}>
+              <div className="card-body">
+                <div className="row text-center">
+                  <div className="col-4 d-flex flex-column align-items-center">
+                    <img height="32px" width="32px" src={process.env.PUBLIC_URL + "/Images/global-cash-won-green-circular.png"} alt="Cash Won" className="mb-2" />
+                    <div className="text-muted" style={{ fontSize: '0.9em' }}>Cash Won</div>
+                    <div className="font-weight-bold" style={{ fontSize: '1.1em' }}>
+                      <img height="auto" width="18px" src={process.env.PUBLIC_URL + "/Images/global-rupeeIcon.png"} alt="₹" className="mr-1" />
+                      {profile && profile.wonAmount}
+                    </div>
+                  </div>
+                  <div className="col-4 d-flex flex-column align-items-center">
+                    <img height="32px" width="32px" src={process.env.PUBLIC_URL + "/Images/global-purple-battleIcon.png"} alt="Battle Played" className="mb-2" />
+                    <div className="text-muted" style={{ fontSize: '0.9em' }}>Battle Played</div>
+                    <div className="font-weight-bold" style={{ fontSize: '1.1em' }}>{total && total}</div>
+                  </div>
+                  <div className="col-4 d-flex flex-column align-items-center">
+                    <img height="32px" width="32px" src={process.env.PUBLIC_URL + "/Images/referral-signup-bonus-new.png"} alt="Referral Earning" className="mb-2" />
+                    <div className="text-muted" style={{ fontSize: '0.9em' }}>Referral Earning</div>
+                    <div className="font-weight-bold" style={{ fontSize: '1.1em' }}>{profile && profile.referral_earning}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Logout Button */}
+            <div className="d-flex justify-content-center mb-5">
+              <button className="btn btn-danger px-5 py-2 text-uppercase font-weight-bold" style={{ borderRadius: 8, letterSpacing: 1 }} onClick={logout}>
+                Log Out
+              </button>
+            </div>
+          </div>
+        </div>
+       
+        {/* <ModalProfile style3={
                 profileModalstyle
             } Enter={Enter}/> */}
             <div className={css.kyc_select} id="profileModal" >

@@ -1,6 +1,6 @@
 import React from "react";
 import css from "../css/notification.module.css";
-import Rightcontainer from "../Components/Rightcontainer";
+
 
 
 const Notification = () => {
@@ -29,9 +29,7 @@ const Notification = () => {
         </div>
       </div>
       </div>
-      <div className="rightContainer">
-        <Rightcontainer />
-      </div>
+
     </div>
   );
 };

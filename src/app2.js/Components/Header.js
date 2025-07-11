@@ -6,6 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import "../Components/Component-css/Header.css";
 import css from "./Component-css/Nav.module.css";
+import { TiThMenuOutline } from "react-icons/ti";
 
 
 const w3_close = () => {
@@ -49,11 +50,11 @@ const Header = ({ user, loggedIn }) => {
       console.error('Error fetching settings:', error);
     }
   }
-  document.title=(WebSitesettings)?WebSitesettings.WebTitle:'Skill based game';
+  document.title = (WebSitesettings) ? WebSitesettings.WebTitle : 'Skill based game';
   //console.log(WebSitesettings);
   useEffect(() => {
     fetchData();
-  },[])
+  }, [])
 
   const logout = () => {
 
@@ -86,12 +87,20 @@ const Header = ({ user, loggedIn }) => {
           <div id='sidebarOverlay' onClick={w3_close}></div>
           <div className="w3-sidebar w3-bar-block" id="mySidebar" style={{ paddingBottom: '70px' }}>
 
+
+            <div className='mt-3 mr-3 cursor-pointer d-flex align-items-center justify-content-end' onClick={w3_close} style={{ fontSize: '1.7rem' }}>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </div>
+
+
+
+
             <Link to={"/Profile"} className="w3-bar-item w3-button" onClick={w3_close}>
               <picture className="icon">
-              {user && user.avatar ? (<img width="30px" height="30px" src={baseUrl+`${user && user.avatar}`} alt="profile" style={{ borderRadius: "50px" }} />) : (<img src={baseUrl+WebSitesettings.SmallLogo} width="25px" height="25px" alt="profile" />)}
+                {user && user.avatar ? (<img width="30px" height="30px" src={baseUrl + `${user && user.avatar}`} alt="profile" style={{ borderRadius: "50px" }} />) : (<img src={baseUrl + WebSitesettings.SmallLogo} width="25px" height="25px" alt="profile" />)}
               </picture>
               <div style={{ marginLeft: '.5rem' }}>
-              <strong>My Profile</strong>
+                <strong>My Profile</strong>
               </div>
             </Link>
             <Link to={"/landing"} className="w3-bar-item w3-button" onClick={w3_close}>
@@ -118,7 +127,7 @@ const Header = ({ user, loggedIn }) => {
                 <img alt="img" src={process.env.PUBLIC_URL + '/Images/Header/gamesHistory.png'} />
               </picture>
               <div style={{ marginLeft: '.5rem' }}>
-              <strong>Game History</strong>
+                <strong>Game History</strong>
               </div>
 
             </Link>
@@ -131,7 +140,7 @@ const Header = ({ user, loggedIn }) => {
                 <img alt="img" src={process.env.PUBLIC_URL + '/Images/Header/order-history.png'} />
               </picture>
               <div style={{ marginLeft: '.5rem' }}>
-              <strong>Transaction History</strong>
+                <strong>Transaction History</strong>
               </div>
 
             </Link>
@@ -141,7 +150,7 @@ const Header = ({ user, loggedIn }) => {
                 <img alt="img" src={process.env.PUBLIC_URL + '/Images/Header/sreferEarn.png'} />
               </picture>
               <div style={{ marginLeft: '.5rem' }}>
-              <strong>Refer and Earn</strong>
+                <strong>Refer and Earn</strong>
               </div>
 
             </Link>
@@ -151,7 +160,7 @@ const Header = ({ user, loggedIn }) => {
                 <img alt="img" src={process.env.PUBLIC_URL + '/Images/Header/refer-history.webp'} />
               </picture>
               <div style={{ marginLeft: '.5rem' }}>
-              <strong>Refer History</strong>
+                <strong>Refer History</strong>
               </div>
 
             </Link>
@@ -161,7 +170,7 @@ const Header = ({ user, loggedIn }) => {
                 <img alt="img" src={process.env.PUBLIC_URL + '/Images/Header/notifications.png'} />
               </picture>
               <div style={{ marginLeft: '.5rem' }}>
-              <strong>Notification</strong>
+                <strong>Notification</strong>
               </div>
 
             </Link>
@@ -173,50 +182,45 @@ const Header = ({ user, loggedIn }) => {
                 <img alt="img" src={process.env.PUBLIC_URL + '/Images/Header/support.png'} />
               </picture>
               <div style={{ marginLeft: '.5rem' }}>
-              <strong>Support</strong>
+                <strong>Support</strong>
               </div>
 
             </Link>
-            {/*   <Link className="w3-bar-item w3-button" to="!/" onClick={(e) => logout(e)}>
-          <picture className="icon">
+              <Link className="w3-bar-item w3-button" to="!/" onClick={(e) => logout(e)}>
+          <picture className="icon rounded-circle">
             <img alt="img" src={process.env.PUBLIC_URL + '/Images/logout.png'} />
           </picture>
           <div style={{ marginLeft: '.5rem' }}>
             Logout
           </div>
 
-        </Link> */}
+        </Link>
           </div>
 
 
           <div className="w3-teal">
             <div className="w3-container ">
-              <div className={`${css.headerContainer} `}>
+              <div className={`${css.headerContainer} pb-1`}>
                 <button
-                  className="w3-button w3-teal w3-xlarge float-left"
+                  // className="w3-button w3-teal w3-xlarge float-left"
+                  style={{backgroundColor:'transparent',border:'none',outline:'none',}}
                   onClick={w3_open} id="hambergar"
                 >
-                  <picture className={`${css.sideNavIcon} mr-0`}>
-                    <img
-                      src={process.env.PUBLIC_URL + '/Images/LandingPage_img/sidebar.png'}
-                      className="snip-img"
-                      alt=''
-                    />
-                  </picture>
+                  <TiThMenuOutline size={30} />
                 </button>
                 <Link to="/" >
                   <picture className={`ml-2 ${css.navLogo} d-flex`}>
-                  
-                  <img
-                  
-                  src={baseUrl+WebSitesettings.SmallLogo}
-                  className="snip-img"
-                  alt='Logo'
-                />
+
+                    <img
+
+                      src={baseUrl + WebSitesettings.SmallLogo}
+                      className="snip-img"
+                      alt='Logo'
+                    />
                   </picture>
                 </Link>
                 <div >
-                  <div className={`${css.menu_items}`}>
+                  <div className={`${css.menu_items} `} style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
                     <Link className={`${css.box}`} to="/Addcase">
                       <picture className={`${css.moneyIcon_container}`}>
                         <img
@@ -226,8 +230,8 @@ const Header = ({ user, loggedIn }) => {
                         />
                       </picture>
                       <div className="mt-1 ml-1">
-                        <div className={`${css.moneyBox_header}`}>Cash</div>
                         <div className={`${css.moneyBox_text}`}>{user && user.Wallet_balance}</div>
+                        <div className={`${css.moneyBox_header}`}>Cash</div>
                       </div>
                       {/* <picture className={`${css.moneyBox_add}`}>
                         <img
@@ -238,9 +242,9 @@ const Header = ({ user, loggedIn }) => {
                       </picture> */}
                     </Link>
                     <Link
-                      className={`${css.box} ml-2`}
+                      className={`${css.box}`}
                       to="/redeem/refer"
-                      style={{ width: "80px" }}
+                      
                     >
                       <picture className={`${css.moneyIcon_container}`}>
                         <img
@@ -250,8 +254,8 @@ const Header = ({ user, loggedIn }) => {
                         />
                       </picture>
                       <div className="mt-1 ml-1">
-                        <div className={`${css.moneyBox_header}`}>Earning</div>
                         <div className={`${css.moneyBox_text}`}>{user && user.referral_wallet}</div>
+                        <div className={`${css.moneyBox_header}`}>Earning</div>
                       </div>
                     </Link>
                   </div>
@@ -269,11 +273,11 @@ const Header = ({ user, loggedIn }) => {
 
               <Link to="/" >
                 <picture className={`ml-2 ${css.navLogo} d-flex`}>
-                <img
-                  src={baseUrl+WebSitesettings.SmallLogo}
-                  className="snip-img"
-                  alt='Logo'
-                />
+                  <img
+                    src={baseUrl + WebSitesettings.SmallLogo}
+                    className="snip-img"
+                    alt='Logo'
+                  />
                 </picture>
               </Link>
 

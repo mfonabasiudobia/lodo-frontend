@@ -5,7 +5,7 @@ import "../css/layout.css"
 import Header from '../Components/Header'
 // import Footer from '../Components/Footer'
 import "../css/help.css"
-import Rightcontainer from '../Components/Rightcontainer'
+
 
 
 
@@ -30,9 +30,7 @@ const Help = () => {
             </div>
             {/* <Footer/> */}
         </div>
-       <div className='rightContainer'>
-         <Rightcontainer/>
-       </div>
+  
     </div>
   )
 }

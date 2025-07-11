@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header from "../Components/Header";
 import "../css/kyc.css";
-import Rightcontainer from "../Components/Rightcontainer";
+
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import css from '../css/Pan.module.css'
@@ -275,9 +275,7 @@ const Kyc2 = ({ user }) => {
           </div>
         }
       </div>
-      <div className="rightContainer">
-        <Rightcontainer />
-      </div>
+
     </div>
   );
 };

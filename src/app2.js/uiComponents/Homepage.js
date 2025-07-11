@@ -4,7 +4,7 @@ import css from "../Modulecss/Home.module.css";
 import axios from "axios";
 import { NavLink, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
-//import Rightcontainer from "../Components/Rightcontainer";
+
 
 import BetCard from "./BetCard";
 import RunningCard from "./RunningCard";
@@ -1040,9 +1040,7 @@ useEffect(() => {
           </div>
         </div>
       </div>
-      {/* <div className="rightContainer">
-        <Rightcontainer />
-      </div> */}
+
     </>
   );
 }

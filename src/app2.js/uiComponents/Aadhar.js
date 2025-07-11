@@ -164,7 +164,7 @@ export default function Aadhar() {
                     </div>
                 </div>
 
-                <div className='rightContainer'></div>
+                
             </form>
         </>
     )

@@ -137,7 +137,7 @@ return newDate;
               width={300}
               height={300}
               className="img-fluid "
-              style={{ marginTop: "25%" }}
+              
             />
             <div className="mt-2">
               <h3 className="font-weight-bold text-dark">No Refer Earning Yet!</h3>

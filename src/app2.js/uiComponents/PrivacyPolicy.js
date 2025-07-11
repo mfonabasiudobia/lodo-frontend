@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Rightcontainer from "../Components/Rightcontainer";
+
 import Header from "../Components/Header";
 import "../css/terms.css";
 import axios from "axios";
@@ -341,9 +341,7 @@ const PrivacyPolicy = () => {
           </div>
         </div>
       </div>
-      <div className="rightContainer">
-        <Rightcontainer />
-      </div>
+     
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import css from '../css/Mywallet.module.css'
-import Rightcontainer from '../Components/Rightcontainer'
+
 import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios';
 
@@ -80,9 +80,7 @@ const Mywallet = () => {
                                       </div>
                                       </div>
           </div>
-          <div className="rightContainer">
-              <div><Rightcontainer/></div>
-          </div>
+
           </>
       )
 }

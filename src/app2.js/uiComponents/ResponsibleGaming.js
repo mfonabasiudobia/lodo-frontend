@@ -1,6 +1,6 @@
 import React from "react";
-import Rightcontainer from "../Components/Rightcontainer";
-import Header from "../Components/Header";
+
+
 import "../css/terms.css";
 
 const ResponsibleGaming = () => {
@@ -78,9 +78,7 @@ Do you do any of the following:
           </div>
         </div>
       </div>
-      <div className="rightContainer">
-        <Rightcontainer />
-      </div>
+    
     </div>
   );
 };

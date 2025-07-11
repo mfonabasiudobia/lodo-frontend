@@ -3,7 +3,7 @@ import css from "../css/gamehis.module.css";
 import ReactPaginate from "react-paginate";
 
 // import Header from "../Components/Header";
-import Rightcontainer from "../Components/Rightcontainer";
+
 import axios from "axios";
 
 
@@ -180,7 +180,7 @@ return newDate;
               width={300}
               height={300}
               className="img-fluid "
-              style={{ marginTop: "25%" }}
+              style={{ marginTop: "10%" }}
             />
             <div className="mt-2">
               <h3 className="font-weight-bold">No Game History</h3>
@@ -190,9 +190,6 @@ return newDate;
         }
       </div>
 
-      <div className="rightContainer">
-        <Rightcontainer />
-      </div>
     </div>
   );
 };

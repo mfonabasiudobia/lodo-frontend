@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom';
 import Swal from "sweetalert2";
-import Rightcontainer from '../Components/Rightcontainer';
+
 import '../css/Loader.css'
 import findGif from "../css/loading.gif";
 function Return({walletUpdate}) {
@@ -104,9 +104,7 @@ function Return({walletUpdate}) {
                     />
                 </div>
             </div>
-            <div className="rightContainer">
-                <Rightcontainer />
-            </div>
+         
         </>
     )
 }

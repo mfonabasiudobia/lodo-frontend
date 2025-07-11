@@ -28,6 +28,7 @@
     right: 10px;
     align-items: center;
     display: flex;
+    gap: 12px;
 }
 
 .sideNavIcon>img {
@@ -45,24 +46,35 @@
 .menu_items>.box {
     align-items: center;
     display: flex;
-}
-
-.menu_items>.box {
     background-color: #8f5fe8;
     border: 1px solid #ededed;
     border-radius: 30px;
-    height: 30px;
-    position: relative;
+    height: 44px;
+    min-width: 110px;
+    padding: 0 18px 0 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    transition: box-shadow 0.2s, transform 0.2s;
     text-decoration: none;
-    min-width: 90px;
-    
+    position: relative;
+    cursor: pointer;
+    justify-content: center;
+    gap: 10px;
+}
+
+.menu_items>.box:last-child {
+    /* margin-right: 0; */
+}
+
+.menu_items>.box:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    transform: scale(1.04);
 }
 
 .moneyIcon_container {
-    overflow: hidden;
-    position: relative;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .moneyBox_add {
@@ -95,27 +107,48 @@
 }
 
 .moneyIcon_container>img {
-   width: 20px;
-    margin-left: 4px;
+    width: 28px;
+    height: 28px;
     background: #fff;
-    border-radius: 38px;
-    padding: 2px;
+    border-radius: 50%;
+    padding: 3px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    display: block;
 }
 
 .moneyBox_header {
     color: #ffffff;
-    font-size: .6em;
-    font-weight: 500;
+    font-size: 0.72em;
+    font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0px;
+    margin-top: 2px;
+    opacity: 0.92;
 }
 
 .moneyBox_text {
     color: #ffffff;
-    font-size: .8em;
-    font-weight: 900;
-    position: relative;
-    bottom: 4px;
+    font-size: 1.18em;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 0px;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+    font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.10);
 }
+
+.menu_items>.box .mt-1.ml-1 {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 60px;
+}
+
 .login_btn {
     color: blue;
     font-size: 1em;
@@ -138,4 +171,29 @@
     border: 2px  solid #f4bc41 !important;
     border-radius: 14px;
     
+}
+
+@media (max-width: 1200px) {
+  .headerContainer {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 600px) {
+    .menu_items {
+        gap: 6px;
+    }
+    .menu_items>.box {
+        min-width: 90px;
+        padding: 0 10px 0 6px;
+        gap: 6px;
+    }
+    .moneyIcon_container>img {
+        width: 22px;
+        height: 22px;
+        padding: 2px;
+    }
+    .moneyBox_text {
+        font-size: 1em;
+    }
 }

@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import Swal from 'sweetalert2'
-//import Rightcontainer from '../Components/Rightcontainer'
+
 import '../css/layout.css'
 import '../css/login.css'
 import loginss from "./ss.png"
@@ -71,7 +71,7 @@ export default function Login() {
                 }
                 else if (respone.data.status === 200) {
                     setOtp(true)
-                    console.log(respone.data);
+                    // console.log(respone.data);
                     setSecretCode(respone.data.secret);
                     if (respone.data.myToken) {
                         Swal.fire({

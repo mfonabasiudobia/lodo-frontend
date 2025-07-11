@@ -1,5 +1,5 @@
 import React from "react";
-import Rightcontainer from "../Components/Rightcontainer";
+
 import css from "../css/Addfunds.module.css";
 const Addfunds = () => {
   return (
@@ -165,9 +165,7 @@ const Addfunds = () => {
           </div>
         </div>
       </div>
-      <div className="rightContainer">
-        <Rightcontainer />
-      </div>
+     
     </div>
   );
 };

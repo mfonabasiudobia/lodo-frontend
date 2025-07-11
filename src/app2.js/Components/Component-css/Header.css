@@ -93,3 +93,19 @@
     display: none;
     transition: all .5s ease-in-out 0s;
 }
+
+@media (max-width: 1200px) {
+  .rightContainer {
+    display: none !important;
+  }
+  .leftContainer {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+  }
+  .w3-teal, .w3-container {
+    
+    max-width: 100% !important;
+    float: none !important;
+  }
+}

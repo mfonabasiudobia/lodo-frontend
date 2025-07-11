@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 // import deposits from "../../app/components/transaction/Deposits";
 import css from "../css/Addcase.module.css";
 import { Link } from 'react-router-dom';
-//import Rightcontainer from "../Components/Rightcontainer";
+
 import '../css/Loader.css'
 import Swal from "sweetalert2";
 // import findGif from "/";

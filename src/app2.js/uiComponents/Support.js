@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Rightcontainer from "../Components/Rightcontainer";
 
 const Support = () => {
   const beckendLocalApiUrl = process.env.REACT_APP_BACKEND_LOCAL_API;
@@ -80,9 +79,7 @@ const Support = () => {
 
         </div>
       </div>
-      <div className="rightContainer">
-        <Rightcontainer />
-      </div>
+     
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
-import Rightcontainer from "../Components/Rightcontainer";
+
 import "../css/terms.css"
 //import { Interweave } from "interweave";
 //import axios from "axios";
@@ -1859,9 +1859,7 @@ const Terms_condition = () => {
           </div>
         </div>
       </div>
-      <div className="rightContainer">
-        <Rightcontainer />
-      </div>
+      
     </div>
   );
 };

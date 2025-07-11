@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
-import Rightcontainer from "../Components/Rightcontainer";
+
 const Gamerules = () => {
   return (
     <div>
@@ -82,9 +82,7 @@ const Gamerules = () => {
         </div>
       </div>
       </div>
-      <div className="rightContainer">
-          <Rightcontainer/>
-      </div>
+     
     </div>
   );
 };

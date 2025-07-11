@@ -5,7 +5,6 @@ import axios from 'axios';
 import { useHistory, useLocation } from 'react-router-dom';
 import Header from '../Components/Header';
 import css from '../css/Pan.module.css'
-//import Rightcontainer from '../Components/Rightcontainer';
 import Swal from 'sweetalert2';
 import '../css/Loader.css';
 

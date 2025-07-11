@@ -77,7 +77,7 @@ return newDate;
 
   return (
     <div>
-      <div className="leftContainer" style={{minHeight:'100vh',height:'100%'}}>
+      <div className="leftContainer mt-5" style={{minHeight:'100vh',height:'100%'}}>
         {/* pagination */}
     
          {/* <div className="pt-5">
